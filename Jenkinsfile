@@ -8,7 +8,7 @@ pipeline {
               archive 'target/*.jar' //so that they can be downloaded later for project
             }
         }   
-    }
+    
   stage('Doing Unit Testing on project') {
             steps {
               sh "mvn test"
