@@ -9,4 +9,10 @@ pipeline {
             }
         }   
     }
+  stage('Doing Unit Testing on project') {
+            steps {
+              sh "mvn test"
+            }
+        }   
+   
 }
