@@ -9,10 +9,16 @@ pipeline {
             }
         }   
     
-  stage('Doing Unit Testing on project') {
-            steps {
+  stage('Doing Unit Tests - by JUnit and Jacoco') {
+      steps {
               sh "mvn test"
             }
-        }   
+      post {
+        always {
+          junit 'target/surefire-reports/*.xml'
+          jacoco execPattern: 'target/jacoco.exec'
+        }
+      }
+    }
   }
 }
